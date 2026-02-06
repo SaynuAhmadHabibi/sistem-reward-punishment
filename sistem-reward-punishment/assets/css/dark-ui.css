@@ -1,0 +1,1288 @@
+/**
+ * DARK MODE UI STYLESHEET
+ * Redesign Total UI - Dark Navy + Green Theme
+ * Corporate HR Management Dashboard
+ * 
+ * IMPORTANT: Hanya mengubah styling CSS
+ * Semua logic backend TETAP AMAN
+ */
+
+/* ================================
+   1. ROOT VARIABLES & COLORS
+   ================================ */
+:root {
+    /* Primary Dark Colors */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1a2332;
+    --bg-tertiary: #243447;
+    --bg-dark: #020617;
+    
+    /* Green Accent Colors */
+    --accent-green: #10b981;
+    --accent-green-light: #34d399;
+    --accent-green-dark: #059669;
+    
+    /* Text Colors */
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    
+    /* Status Colors */
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --info: #3b82f6;
+    --reward-color: #10b981;
+    --punishment-color: #ef4444;
+    
+    /* UI Elements */
+    --card-bg: #1a2332;
+    --border-color: #2e3e4f;
+    --border-subtle: #1f2937;
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.4);
+    --border-radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================================
+   2. GLOBAL STYLES
+   ================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-primary) 100%);
+    color: var(--text-primary);
+    font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ================================
+   3. SIDEBAR STYLING - DARK GREEN
+   ================================ */
+.sidebar {
+    background: var(--bg-primary) !important;
+    border-right: 1px solid var(--border-color) !important;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3) !important;
+    width: 260px !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100vh !important;
+    z-index: 1000 !important;
+    overflow-y: auto !important;
+}
+
+.sidebar-header {
+    padding: 24px 20px !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    background: var(--bg-primary) !important;
+}
+
+.sidebar-logo {
+    max-height: 50px !important;
+    margin-bottom: 12px !important;
+    filter: brightness(0) invert(1);
+}
+
+.sidebar-title {
+    color: var(--text-primary) !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 4px !important;
+}
+
+.sidebar-subtitle {
+    color: var(--accent-green-light) !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    opacity: 1 !important;
+}
+
+.sidebar-menu {
+    padding: 16px 0 !important;
+    flex: 1 !important;
+    overflow-y: auto !important;
+}
+
+.nav-item {
+    margin: 2px 10px !important;
+}
+
+.nav-link {
+    color: var(--text-secondary) !important;
+    padding: 6px 16px !important;
+    border-radius: 8px !important;
+    transition: var(--transition) !important;
+    font-weight: 500 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    height: 36px !important;
+    background: transparent !important;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: var(--accent-green);
+    transform: scaleY(0);
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--accent-green-light) !important;
+    background: transparent !important;
+}
+
+.nav-link:hover::before {
+    transform: scaleY(1);
+}
+
+.menu-section-header {
+    padding: 12px 20px 4px 20px !important;
+    color: var(--text-secondary) !important;
+    font-weight: 600 !important;
+    font-size: 0.7rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    background: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+}
+
+.menu-section-header span {
+    color: var(--text-secondary) !important;
+}
+
+.nav-link.active {
+    color: var(--text-primary) !important;
+    background: transparent !important;
+    font-weight: 600 !important;
+    border-left: 4px solid var(--accent-green) !important;
+}
+
+.nav-link.active::before {
+    transform: scaleY(1);
+}
+
+.nav-link.active .nav-icon {
+    color: var(--accent-green) !important;
+}
+
+.nav-link .nav-icon {
+    color: var(--text-muted) !important;
+}
+
+.nav-link.active .nav-icon {
+    color: var(--accent-green) !important;
+}
+
+.nav-link.active::before {
+    transform: scaleY(1);
+}
+
+.nav-icon {
+    width: 20px !important;
+    text-align: center !important;
+    margin-right: 12px !important;
+    font-size: 1rem !important;
+}
+
+.nav-text {
+    flex: 1 !important;
+}
+
+.nav-badge {
+    background: rgba(16, 185, 129, 0.3) !important;
+    color: var(--accent-green-light) !important;
+    padding: 3px 8px !important;
+    border-radius: 4px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+}
+
+.sidebar-user-info {
+    padding: 12px 20px 8px 20px !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    background: transparent !important;
+}
+
+.user-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.user-avatar {
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 50% !important;
+    background: var(--accent-green) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    font-size: 0.8rem !important;
+    flex-shrink: 0 !important;
+}
+
+.user-details {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+.user-name {
+    color: var(--text-primary) !important;
+    font-weight: 300 !important;
+    font-size: 0.7rem !important;
+    margin-bottom: 2px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.user-role .badge {
+    font-size: 0.6rem !important;
+    padding: 1px 6px !important;
+    border-radius: 12px !important;
+    font-weight: 400 !important;
+    display: inline-block !important;
+    border: 1px solid rgba(16, 185, 129, 0.3) !important;
+    background: transparent !important;
+    color: var(--accent-green-light) !important;
+}
+
+.sidebar-logout {
+    padding: 16px !important;
+    border-top: 1px solid var(--border-subtle) !important;
+    margin-top: auto !important;
+}
+
+.logout-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 12px 16px !important;
+    color: var(--text-secondary) !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    transition: var(--transition) !important;
+    font-weight: 500 !important;
+    background: rgba(239, 68, 68, 0.1) !important;
+    border: 1px solid rgba(239, 68, 68, 0.2) !important;
+}
+
+.logout-link:hover {
+    color: #fca5a5 !important;
+    background: rgba(239, 68, 68, 0.2) !important;
+    border-color: rgba(239, 68, 68, 0.4) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.logout-link i {
+    margin-right: 8px !important;
+    font-size: 1rem !important;
+}
+
+.sidebar-footer {
+    position: absolute !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    padding: 16px !important;
+    border-top: 1px solid var(--border-subtle) !important;
+}
+
+/* ================================
+   4. NAVBAR TOP STYLING
+   ================================ */
+.navbar-top {
+    background: linear-gradient(90deg, rgba(26, 35, 50, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    padding: 12px 0 !important;
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+    padding-left: 24px !important;
+}
+
+.navbar-brand i {
+    color: var(--accent-green) !important;
+    margin-right: 8px !important;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.user-name {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.user-role {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-green-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* ================================
+   5. MAIN CONTENT AREA
+   ================================ */
+.main-content {
+    margin-left: 260px !important;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-primary) 100%);
+}
+
+.content-container {
+    padding: 24px 28px;
+}
+
+.page-header {
+    margin-bottom: 28px;
+}
+
+.page-title {
+    color: var(--text-primary) !important;
+    font-weight: 700 !important;
+    font-size: 2rem !important;
+    margin-bottom: 8px !important;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-green-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-subtitle {
+    color: var(--text-muted) !important;
+    font-size: 0.95rem !important;
+    margin: 0 !important;
+}
+
+/* ================================
+   6. CARD STYLING
+   ================================ */
+.card {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--shadow-soft) !important;
+    transition: var(--transition) !important;
+    color: var(--text-primary) !important;
+}
+
+.card:hover {
+    border-color: var(--border-subtle) !important;
+    box-shadow: var(--shadow-md) !important;
+    transform: translateY(-4px);
+}
+
+/* ================================
+   6.5. CLICKABLE CARD STYLING
+   ================================ */
+.clickable-card {
+    text-decoration: none !important;
+    color: inherit !important;
+    cursor: pointer !important;
+    display: block !important;
+    transition: var(--transition) !important;
+}
+
+.clickable-card:hover .card {
+    border-color: var(--accent-green) !important;
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3) !important;
+    transform: translateY(-6px) !important;
+    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(16, 185, 129, 0.08) 100%) !important;
+}
+
+.card-header {
+    background: rgba(16, 185, 129, 0.05) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    padding: 16px 20px !important;
+}
+
+.card-header.bg-light {
+    background: rgba(16, 185, 129, 0.05) !important;
+    color: var(--text-primary) !important;
+}
+
+.card-title {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    margin-bottom: 0 !important;
+}
+
+.card-body {
+    padding: 20px !important;
+    color: var(--text-secondary) !important;
+}
+
+.card-text {
+    color: var(--text-secondary) !important;
+}
+
+/* ================================
+   7. STAT CARD STYLING
+   ================================ */
+.stat-card {
+    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(16, 185, 129, 0.05) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.stat-card-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(16, 185, 129, 0.15);
+    border-radius: 12px;
+    font-size: 1.8rem;
+    color: var(--accent-green);
+}
+
+/* ================================
+   8. BUTTON STYLING
+   ================================ */
+.btn {
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    transition: var(--transition) !important;
+    border: none !important;
+    padding: 10px 16px !important;
+    font-size: 0.95rem !important;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-green-light) 100%) !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--accent-green-dark) 0%, var(--accent-green) 100%) !important;
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4) !important;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: var(--card-bg) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.btn-secondary:hover {
+    background: rgba(16, 185, 129, 0.1) !important;
+    border-color: var(--accent-green) !important;
+    color: var(--accent-green-light) !important;
+}
+
+.btn-outline-secondary {
+    color: var(--text-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.btn-outline-secondary:hover {
+    background: rgba(16, 185, 129, 0.1) !important;
+    border-color: var(--accent-green) !important;
+    color: var(--accent-green-light) !important;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--danger) 0%, #dc2626 100%) !important;
+    color: white !important;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #dc2626 0%, var(--danger) 100%) !important;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%) !important;
+    color: white !important;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, var(--success-dark, #059669) 0%, var(--success) 100%) !important;
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, var(--warning) 0%, #d97706 100%) !important;
+    color: white !important;
+}
+
+.btn-info {
+    background: linear-gradient(135deg, var(--info) 0%, #2563eb 100%) !important;
+    color: white !important;
+}
+
+.btn-sm {
+    padding: 6px 12px !important;
+    font-size: 0.85rem !important;
+}
+
+.btn-lg {
+    padding: 12px 24px !important;
+    font-size: 1rem !important;
+}
+
+/* ================================
+   9. TABLE STYLING
+   ================================ */
+.table {
+    color: var(--text-secondary) !important;
+    border-collapse: collapse;
+}
+
+.table thead th {
+    background: rgba(16, 185, 129, 0.1) !important;
+    color: var(--accent-green-light) !important;
+    border-bottom: 2px solid var(--border-color) !important;
+    font-weight: 600 !important;
+    padding: 16px !important;
+}
+
+.table tbody td {
+    border-bottom: 1px solid var(--border-subtle) !important;
+    padding: 14px 16px !important;
+    color: var(--text-secondary) !important;
+}
+
+.table tbody tr {
+    transition: var(--transition) !important;
+}
+
+.table tbody tr:hover {
+    background: rgba(16, 185, 129, 0.08) !important;
+    box-shadow: inset 0 0 8px rgba(16, 185, 129, 0.1);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background: rgba(16, 185, 129, 0.03) !important;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+    color: var(--text-muted) !important;
+}
+
+/* ================================
+   10. FORM ELEMENTS
+   ================================ */
+.form-control,
+.form-select,
+.form-range {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+    border-radius: 8px !important;
+    transition: var(--transition) !important;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-range:focus {
+    background: var(--card-bg) !important;
+    border-color: var(--accent-green) !important;
+    color: var(--text-primary) !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2) !important;
+}
+
+.form-control::placeholder {
+    color: var(--text-muted) !important;
+}
+
+.form-label {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    margin-bottom: 8px !important;
+}
+
+.form-check-input {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    width: 20px;
+    height: 20px;
+}
+
+.form-check-input:checked {
+    background: var(--accent-green) !important;
+    border-color: var(--accent-green) !important;
+}
+
+.form-check-label {
+    color: var(--text-secondary) !important;
+    font-weight: 500 !important;
+}
+
+/* ================================
+   11. BADGE & PILL STYLING
+   ================================ */
+.badge {
+    border-radius: 20px !important;
+    font-weight: 600 !important;
+    padding: 6px 12px !important;
+    font-size: 0.8rem !important;
+}
+
+.badge-success {
+    background: rgba(16, 185, 129, 0.2) !important;
+    color: var(--accent-green-light) !important;
+}
+
+.badge-danger {
+    background: rgba(239, 68, 68, 0.2) !important;
+    color: #fca5a5 !important;
+}
+
+.badge-warning {
+    background: rgba(245, 158, 11, 0.2) !important;
+    color: #fcd34d !important;
+}
+
+.badge-info {
+    background: rgba(59, 130, 246, 0.2) !important;
+    color: #93c5fd !important;
+}
+
+.badge-primary {
+    background: rgba(16, 185, 129, 0.2) !important;
+    color: var(--accent-green-light) !important;
+}
+
+.badge-secondary {
+    background: rgba(148, 163, 184, 0.2) !important;
+    color: var(--text-secondary) !important;
+}
+
+.badge-reward {
+    background: rgba(16, 185, 129, 0.2) !important;
+    color: var(--accent-green-light) !important;
+}
+
+.badge-punishment {
+    background: rgba(239, 68, 68, 0.2) !important;
+    color: #fca5a5 !important;
+}
+
+/* ================================
+   12. ALERT STYLING
+   ================================ */
+.alert {
+    border-radius: var(--border-radius) !important;
+    border: none !important;
+    padding: 16px 20px !important;
+    margin-bottom: 20px !important;
+}
+
+.alert-success {
+    background: rgba(16, 185, 129, 0.15) !important;
+    color: var(--accent-green-light) !important;
+}
+
+.alert-danger {
+    background: rgba(239, 68, 68, 0.15) !important;
+    color: #fca5a5 !important;
+}
+
+.alert-warning {
+    background: rgba(245, 158, 11, 0.15) !important;
+    color: #fcd34d !important;
+}
+
+.alert-info {
+    background: rgba(59, 130, 246, 0.15) !important;
+    color: #93c5fd !important;
+}
+
+/* ================================
+   13. ACCORDION STYLING
+   ================================ */
+.accordion {
+    background: transparent;
+    border: none;
+}
+
+.accordion-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 12px;
+}
+
+.accordion-header .accordion-button {
+    background: transparent;
+    color: var(--text-primary);
+    font-weight: 600;
+    box-shadow: none;
+}
+
+.accordion-header .accordion-button:not(.collapsed) {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent-green-light);
+    box-shadow: none;
+}
+
+.accordion-header .accordion-button::after {
+    background: none;
+    filter: invert(1);
+}
+
+.accordion-body {
+    background: transparent;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+}
+
+/* ================================
+   14. CHART CONTAINER
+   ================================ */
+.chart-container {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+}
+
+.chart-title {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 16px;
+    font-size: 1rem;
+}
+
+.chart-canvas {
+    position: relative;
+}
+
+/* ================================
+   15. MODAL STYLING
+   ================================ */
+.modal-content {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.modal-header {
+    background: rgba(16, 185, 129, 0.05) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    padding: 20px !important;
+}
+
+.modal-title {
+    color: var(--text-primary) !important;
+    font-weight: 700 !important;
+}
+
+.modal-body {
+    padding: 20px !important;
+    color: var(--text-secondary) !important;
+}
+
+.modal-footer {
+    border-top: 1px solid var(--border-color) !important;
+    padding: 16px !important;
+    background: transparent !important;
+}
+
+.btn-close {
+    filter: invert(1);
+    opacity: 0.6;
+}
+
+.btn-close:hover {
+    opacity: 1;
+}
+
+/* ================================
+   16. PAGINATION
+   ================================ */
+.pagination {
+    gap: 6px;
+}
+
+.page-link {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-secondary) !important;
+    transition: var(--transition) !important;
+}
+
+.page-link:hover {
+    background: rgba(16, 185, 129, 0.2) !important;
+    border-color: var(--accent-green) !important;
+    color: var(--accent-green-light) !important;
+}
+
+.page-item.active .page-link {
+    background: var(--accent-green) !important;
+    border-color: var(--accent-green) !important;
+    color: white !important;
+}
+
+/* ================================
+   17. LIST GROUP
+   ================================ */
+.list-group-item {
+    background: transparent !important;
+    border: 1px solid var(--border-subtle) !important;
+    color: var(--text-secondary) !important;
+    transition: var(--transition) !important;
+}
+
+.list-group-item:first-child {
+    border-radius: 8px 8px 0 0 !important;
+}
+
+.list-group-item:last-child {
+    border-radius: 0 0 8px 8px !important;
+}
+
+.list-group-item.active {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, transparent 100%) !important;
+    border-color: var(--accent-green) !important;
+    color: var(--accent-green-light) !important;
+}
+
+.list-group-item-action:hover {
+    background: rgba(16, 185, 129, 0.1) !important;
+    color: var(--accent-green-light) !important;
+}
+
+/* ================================
+   18. RESPONSIVE DESIGN
+   ================================ */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 220px !important;
+    }
+    
+    .main-content {
+        margin-left: 220px !important;
+    }
+    
+    .page-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .content-container {
+        padding: 16px 20px !important;
+    }
+    
+    .stat-number {
+        font-size: 2rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        position: fixed;
+        z-index: 1050;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        transition: left 0.3s;
+    }
+    
+    .sidebar.show {
+        left: 0;
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+    }
+    
+    .page-title {
+        font-size: 1.3rem !important;
+    }
+    
+    .stat-card {
+        padding: 16px !important;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem !important;
+    }
+    
+    .stat-icon {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.5rem !important;
+    }
+}
+
+/* ================================
+   19. SCROLLBAR STYLING
+   ================================ */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-green);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-green-light);
+}
+
+/* ================================
+   20. UTILITY CLASSES
+   ================================ */
+.text-primary {
+    color: var(--text-primary) !important;
+}
+
+.text-secondary {
+    color: var(--text-secondary) !important;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.text-success {
+    color: var(--success) !important;
+}
+
+.text-danger {
+    color: var(--danger) !important;
+}
+
+.text-warning {
+    color: var(--warning) !important;
+}
+
+.text-info {
+    color: var(--info) !important;
+}
+
+.bg-primary-subtle {
+    background: rgba(16, 185, 129, 0.1) !important;
+}
+
+.bg-success-subtle {
+    background: rgba(16, 185, 129, 0.1) !important;
+}
+
+.bg-danger-subtle {
+    background: rgba(239, 68, 68, 0.1) !important;
+}
+
+.bg-warning-subtle {
+    background: rgba(245, 158, 11, 0.1) !important;
+}
+
+.border-top {
+    border-top: 1px solid var(--border-color) !important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+.shadow-sm {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.shadow {
+    box-shadow: var(--shadow-soft) !important;
+}
+
+.shadow-lg {
+    box-shadow: var(--shadow-md) !important;
+}
+
+/* ================================
+   21. SPECIAL COMPONENTS
+   ================================ */
+.glow-green {
+    text-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+    color: var(--accent-green-light);
+}
+
+.highlight-row {
+    background: rgba(16, 185, 129, 0.15) !important;
+    border-left: 3px solid var(--accent-green) !important;
+}
+
+.reward-highlight {
+    background: rgba(16, 185, 129, 0.1) !important;
+    border-left: 3px solid var(--accent-green) !important;
+}
+
+.punishment-highlight {
+    background: rgba(239, 68, 68, 0.1) !important;
+    border-left: 3px solid var(--danger) !important;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-green-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+.card-glow {
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+}
+
+.card-glow:hover {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
+}
+
+/* ================================
+   22. ANIMATION
+   ================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+.pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ================================
+   23. LOADING STATE
+   ================================ */
+.spinner-border {
+    border-color: var(--border-color) !important;
+    border-right-color: var(--accent-green) !important;
+}
+
+/* ================================
+   24. LOGIN PAGE STYLES
+   ================================ */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    padding: 30px;
+    max-width: 400px;
+    width: 100%;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.system-title {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.system-subtitle {
+    color: var(--accent-green-light);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.login-form-section {
+    margin-bottom: 20px;
+}
+
+.demo-accounts-section {
+    margin-bottom: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.demo-accounts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.account-item {
+    background: rgba(16, 185, 129, 0.05);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.account-item strong {
+    color: var(--accent-green-light);
+    font-weight: 600;
+}
+
+.account-item small {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.login-footer small {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+/* ================================
+   25. PRINT STYLES
+   ================================ */
+@media print {
+    .sidebar,
+    .navbar-top,
+    .no-print {
+        display: none !important;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+    }
+
+    body {
+        background: white !important;
+    }
+
+    .card {
+        background: white !important;
+        border: 1px solid #dee2e6 !important;
+    }
+}
